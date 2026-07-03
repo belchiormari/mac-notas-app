@@ -4,7 +4,7 @@ import PackageDescription
 let package = Package(
     name: "NotasRapidas",
     platforms: [
-        .macOS(.v12)
+        .macOS(.v11)
     ],
     targets: [
         .executableTarget(

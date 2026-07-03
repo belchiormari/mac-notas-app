@@ -9,7 +9,7 @@ isso o app abre quase no mesmo instante em que você clica no ícone.
 
 ## Requisitos
 
-- macOS 12 ou mais recente.
+- macOS 11 (Big Sur) ou mais recente.
 - Xcode **Command Line Tools** (não precisa do Xcode completo):
   ```bash
   xcode-select --install
