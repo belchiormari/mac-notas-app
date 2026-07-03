@@ -43,21 +43,26 @@ um app de verdade instalado em Aplicativos/Dock.
 
 ## Uso
 
-- **⌘N** — nova nota
-- **⌘O** — abrir um arquivo `.txt`
-- **⌘S** — salvar
-- **⌘W** — fechar a janela
-- Segure **⌥ Option** ao abrir o menu **Arquivo** para ver "Salvar Como..."
-  (no macOS moderno isso substitui o antigo "Save As", igual no TextEdit)
-- Cada nota é uma janela independente, exatamente como no Bloco de Notas —
-  pode abrir várias ao mesmo tempo.
-- Ao fechar uma janela com alterações não salvas, o macOS pergunta se você
-  quer salvar (comportamento nativo, sem código extra).
+- **⌘N** ou o botão "Nova nota" — cria uma nota nova, já salva automaticamente.
+- Digite: a nota salva sozinha no disco enquanto você escreve, sem nenhuma
+  janela de "salvar como" ou pergunta de local.
+- Clique em qualquer nota da lista lateral para abri-la.
+- Botão direito numa nota → **Mover para o Lixo** para apagá-la.
+- Todas as notas ficam em `~/Documents/Notas Rápidas/`, um arquivo `.txt`
+  por nota, nomeado com a data e hora de criação. Você pode abrir essa
+  pasta no Finder a qualquer momento e mexer nos arquivos livremente.
+
+**Primeiro acesso à pasta Documentos:** na primeira vez que o app tentar
+salvar, o macOS pode mostrar um aviso perguntando se ele pode acessar sua
+pasta Documentos — clique em **OK/Permitir**. Isso é uma proteção de
+privacidade do sistema, não um erro do app.
 
 ## Estrutura do projeto
 
 - `Sources/NotasRapidas/NotasRapidasApp.swift` — ponto de entrada do app.
-- `Sources/NotasRapidas/TextDocument.swift` — leitura/escrita do arquivo `.txt`.
-- `Sources/NotasRapidas/ContentView.swift` — a área de edição de texto.
-- `Resources/Info.plist` — metadados do app (nome, ícone, tipos de arquivo).
+- `Sources/NotasRapidas/NoteStore.swift` — lista, cria, apaga e recarrega
+  as notas a partir dos arquivos `.txt` em `~/Documents/Notas Rápidas/`.
+- `Sources/NotasRapidas/ContentView.swift` — lista lateral + área de edição,
+  com salvamento automático enquanto você digita.
+- `Resources/Info.plist` — metadados do app (nome, versão, versão mínima do macOS).
 - `build.sh` — compila e empacota o `.app`.

@@ -2,9 +2,11 @@ import SwiftUI
 
 @main
 struct NotasRapidasApp: App {
+    @StateObject private var store = NoteStore()
+
     var body: some Scene {
-        DocumentGroup(newDocument: TextDocument()) { file in
-            ContentView(document: file.$document)
+        WindowGroup {
+            ContentView(store: store)
         }
     }
 }
