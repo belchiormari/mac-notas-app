@@ -57,6 +57,26 @@ salvar, o macOS pode mostrar um aviso perguntando se ele pode acessar sua
 pasta Documentos — clique em **OK/Permitir**. Isso é uma proteção de
 privacidade do sistema, não um erro do app.
 
+## Personalizar o ícone do app
+
+1. Escolha uma imagem quadrada (PNG, de preferência 1024x1024px, pode ter
+   fundo transparente).
+2. No Terminal, dentro da pasta do projeto, rode:
+   ```bash
+   ./Resources/make_icon.sh /caminho/para/sua-imagem.png
+   ```
+   Isso gera `Resources/AppIcon.icns` com todos os tamanhos que o macOS precisa.
+3. Rode `./build.sh` de novo — o novo ícone já é incluído automaticamente
+   no `.app`.
+4. Substitua o app antigo em Aplicativos pelo novo.
+
+Se o ícone não atualizar visualmente no Finder/Dock (o macOS guarda um
+cache de ícones), rode:
+```bash
+killall Dock
+killall Finder
+```
+
 ## Estrutura do projeto
 
 - `Sources/NotasRapidas/NotasRapidasApp.swift` — ponto de entrada do app.
